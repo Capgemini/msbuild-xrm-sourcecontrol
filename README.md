@@ -8,3 +8,5 @@ It extends msbuild process for Clean and Afterbuild targets:
 
 # Dependencies
 1. Microsoft.Xrm.Data.PowerShell - [Microsoft.Xrm.Data.PowerShell GitHub project](https://github.com/seanmcne/Microsoft.Xrm.Data.PowerShell) - PowerShell wrapper for CRM SDK  [CrmServiceClient](https://msdn.microsoft.com/en-us/library/microsoft.xrm.tooling.connector.crmserviceclient_methods(v=crm.6).aspx) class.
+2. Microsoft.CrmSdk.CoreTools - [Microsoft.CrmSdk.CoreTools Nuget package](https://www.nuget.org/packages/Microsoft.CrmSdk.CoreTools/) - Offical Microsoft CRM SDK core tools
+3. CreateNewNuGetPackageFromProjectAfterEachBuild - [CreateNewNuGetPackageFromProjectAfterEachBuild Nuget package](https://www.nuget.org/packages/CreateNewNuGetPackageFromProjectAfterEachBuild/) - helper package to build nuget packages
