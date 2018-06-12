@@ -1,4 +1,4 @@
-# xrm-visualstudio-extensions
+# Capgemini.VisualStudio.XrmSourceControl
 
 Capgemini Visual Studio Extensions to provide an easy source control for Dynamics CRM - contains extract customisations and build scripts based on solutionpackager.exe SDK tool. Supports mapping file, managed and unmanaged solutions, export autonumber and callendar settings
 
