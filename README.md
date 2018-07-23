@@ -44,7 +44,7 @@ The first step is to populate the values for each of the elements:
 
 The last two option are the equivalent of ticking the first two options on this page of the Dynamics Solution Export dialog:
 
-![SolutionExport.png](./attachments/SolutionExport.png)
+![SolutionExport.png](./attachments/solutionExport.png)
 
 #### MappingFile.xml
 
