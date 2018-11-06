@@ -14,7 +14,7 @@ It extends the msbuild process for Clean and Afterbuild targets:
 - **Microsoft.CrmSdk.CoreTools** - [Microsoft.CrmSdk.CoreTools Nuget package](https://www.nuget.org/packages/Microsoft.CrmSdk.CoreTools/) - Offical Microsoft CRM SDK core tools
 - **CreateNewNuGetPackageFromProjectAfterEachBuild** - [CreateNewNuGetPackageFromProjectAfterEachBuild Nuget package](https://www.nuget.org/packages/CreateNewNuGetPackageFromProjectAfterEachBuild/) - helper package to build nuget packages
 
-### Example Usage
+## Example Usage
 
 Below shows the basic configurations to extract the customisations into source control
 
