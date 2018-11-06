@@ -1,17 +1,20 @@
 # Capgemini.VisualStudio.XrmSourceControl
 
-Capgemini Visual Studio Extensions to provide an easy source control for Dynamics CRM - contains extract customisations and build scripts based on solutionpackager.exe SDK tool. Supports mapping file, managed and unmanaged solutions, export autonumber and callendar settings
+## Introduction
+Capgemini Visual Studio Extensions to provide easy source control for Dynamics CRM customisations. The extensions use powershell scripts that can seamlessly extract customisations from a Dynamics CRM instance and rebuild into a Solution file.  
 
-It extends msbuild process for Clean and Afterbuild targets:
-1. Clean - executes a custom powershell script to export managed and unmanaged solution and unpack them with CRM solutionpackager.exe SDK tool to the Src folder.
-2. AfterBuild - executes a custom powershell script to pack the Src folder into managed (for Release configuration) and unmanged (for Release and Debug configuration) CRM solution using CRM solutionpackager.exe SDK tool.
+The scripts use the *SolutionPackager.exe* tool provided by the Dynamics SDK. Supports file mappings, Managed and Unmanaged solutions, and the export of Autonumber and Calendar settings.
 
-# Dependencies
-1. Microsoft.Xrm.Data.PowerShell - [Microsoft.Xrm.Data.PowerShell GitHub project](https://github.com/seanmcne/Microsoft.Xrm.Data.PowerShell) - PowerShell wrapper for CRM SDK  [CrmServiceClient](https://msdn.microsoft.com/en-us/library/microsoft.xrm.tooling.connector.crmserviceclient_methods(v=crm.6).aspx) class.
-2. Microsoft.CrmSdk.CoreTools - [Microsoft.CrmSdk.CoreTools Nuget package](https://www.nuget.org/packages/Microsoft.CrmSdk.CoreTools/) - Offical Microsoft CRM SDK core tools
-3. CreateNewNuGetPackageFromProjectAfterEachBuild - [CreateNewNuGetPackageFromProjectAfterEachBuild Nuget package](https://www.nuget.org/packages/CreateNewNuGetPackageFromProjectAfterEachBuild/) - helper package to build nuget packages
+It extends the msbuild process for Clean and Afterbuild targets:
+1. **Clean** - Executes a custom powershell script to export Managed and Unmanaged solution file from Dynamics and unpack them with *SolutionPackager.exe* to the "Src" folder.
+2. **AfterBuild** - Executes a custom powershell script to pack the "Src" folder into Managed (for Release configuration) and Unmanaged (for Release and Debug configuration) Dynamics solution files using *SolutionPackager.exe*.
 
-###Example Usage
+## Dependencies
+- **Microsoft.Xrm.Data.PowerShell** - [Microsoft.Xrm.Data.PowerShell GitHub project](https://github.com/seanmcne/Microsoft.Xrm.Data.PowerShell) - PowerShell wrapper for CRM SDK  [CrmServiceClient](https://msdn.microsoft.com/en-us/library/microsoft.xrm.tooling.connector.crmserviceclient_methods(v=crm.6).aspx) class.
+- **Microsoft.CrmSdk.CoreTools** - [Microsoft.CrmSdk.CoreTools Nuget package](https://www.nuget.org/packages/Microsoft.CrmSdk.CoreTools/) - Offical Microsoft CRM SDK core tools
+- **CreateNewNuGetPackageFromProjectAfterEachBuild** - [CreateNewNuGetPackageFromProjectAfterEachBuild Nuget package](https://www.nuget.org/packages/CreateNewNuGetPackageFromProjectAfterEachBuild/) - helper package to build nuget packages
+
+## Example Usage
 
 Below shows the basic configurations to extract the customisations into source control
 
