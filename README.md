@@ -1,7 +1,7 @@
-# Capgemini.VisualStudio.XrmSourceControl
+# MsBuild.Xrm.SourceControl
 
 ## Introduction
-Capgemini Visual Studio Extensions to provide easy source control for Dynamics CRM customisations. The extensions use powershell scripts that can seamlessly extract customisations from a Dynamics CRM instance and rebuild into a Solution file.  
+MsBuild Visual Studio Extensions to provide easy source control for Dynamics CRM customisations. The extensions use powershell scripts that can seamlessly extract customisations from a Dynamics CRM instance and rebuild into a Solution file.  
 
 The scripts use the *SolutionPackager.exe* tool provided by the Dynamics SDK. Supports file mappings, Managed and Unmanaged solutions, and the export of Autonumber and Calendar settings.
 
@@ -67,10 +67,10 @@ The Mapping configuration is used when the Solution file is being rebuilt from t
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Mapping>
-  <FileToPath map="WebResources\*.*" to="..\..\Capgemini.Base.CrmPackage\WebResources\**" />
-  <FileToPath map="WebResources\**\*.*" to="..\..\Capgemini.Base.CrmPackage\WebResources\**" />
-  <FileToFile map="CapgeminiBaseWorkflows.dll" to="..\..\Capgemini.Base.Workflows\bin\**\Capgemini.Base.Workflows.dll" />
-  <FileToFile map="CapgeminiBasePlugins.dll" to="..\..\Capgemini.Base.Plugins\bin\**\Capgemini.Base.Plugins.dll" />
+  <FileToPath map="WebResources\*.*" to="..\..\XXX.Base.CrmPackage\WebResources\**" />
+  <FileToPath map="WebResources\**\*.*" to="..\..\XXX.Base.CrmPackage\WebResources\**" />
+  <FileToFile map="CapgeminiBaseWorkflows.dll" to="..\..\XXX.Base.Workflows\bin\**\Capgemini.Base.Workflows.dll" />
+  <FileToFile map="CapgeminiBasePlugins.dll" to="..\..\XXX.Base.Plugins\bin\**\Capgemini.Base.Plugins.dll" />
 </Mapping>
 ```
 
