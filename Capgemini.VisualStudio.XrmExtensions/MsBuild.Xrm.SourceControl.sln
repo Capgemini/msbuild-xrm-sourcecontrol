@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsBuild.VisualStudio.XrmSourceControl", "Capgemini.VisualStudio.XrmSourceControl\MsBuild.VisualStudio.XrmSourceControl.csproj", "{36C37D30-58D5-4FED-9581-223EF1EB8884}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsBuild.Xrm.SourceControl", "Capgemini.VisualStudio.XrmSourceControl\MsBuild.Xrm.SourceControl.csproj", "{36C37D30-58D5-4FED-9581-223EF1EB8884}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

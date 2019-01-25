@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>MsBuild.VisualStudio.XrmSourceControl</id>
+    <id>MsBuild.Xrm.SourceControl</id>
     <version>1.0.0.0</version>
     <title>MsBuild Visual Studio Extensions to provide easy source control for Dynamics CRM</title>
     <authors>Kriss Sulikowski</authors>
