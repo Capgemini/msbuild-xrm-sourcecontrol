@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Capgemini.VisualStudio.XrmSourceControl")]
+[assembly: AssemblyTitle("MsBuild.VisualStudio.XrmSourceControl")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Capgemini Corporation")]
-[assembly: AssemblyProduct("Capgemini.VisualStudio.XrmSourceControl")]
-[assembly: AssemblyCopyright("Copyright © Capgemini  2018")]
+[assembly: AssemblyCompany("MsBuild Corporation")]
+[assembly: AssemblyProduct("MsBuild.VisualStudio.XrmSourceControl")]
+[assembly: AssemblyCopyright("Copyright © MsBuild  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

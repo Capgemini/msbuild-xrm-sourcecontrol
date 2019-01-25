@@ -7,8 +7,8 @@
     <ProjectGuid>{36C37D30-58D5-4FED-9581-223EF1EB8884}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Capgemini.VisualStudio.XrmSourceControl</RootNamespace>
-    <AssemblyName>Capgemini.VisualStudio.XrmSourceControl</AssemblyName>
+    <RootNamespace>MsBuild.VisualStudio.XrmSourceControl</RootNamespace>
+    <AssemblyName>MsBuild.VisualStudio.XrmSourceControl</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="build\Capgemini.VisualStudio.XrmSourceControl.targets" />
-    <None Include="Capgemini.VisualStudio.XrmSourceControl.nuspec">
+    <None Include="MsBuild.VisualStudio.XrmSourceControl.nuspec">
       <SubType>Designer</SubType>
     </None>
     <None Include="content\CrmConfiguration.props" />
