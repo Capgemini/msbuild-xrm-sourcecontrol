@@ -7,8 +7,8 @@
     <ProjectGuid>{36C37D30-58D5-4FED-9581-223EF1EB8884}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Capgemini.VisualStudio.XrmSourceControl</RootNamespace>
-    <AssemblyName>Capgemini.VisualStudio.XrmSourceControl</AssemblyName>
+    <RootNamespace>MsBuild.Xrm.SourceControl</RootNamespace>
+    <AssemblyName>MsBuild.Xrm.SourceControl</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -44,8 +44,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="build\Capgemini.VisualStudio.XrmSourceControl.targets" />
-    <None Include="Capgemini.VisualStudio.XrmSourceControl.nuspec">
+    <None Include="build\MsBuild.Xrm.SourceControl.targets" />
+    <None Include="MsBuild.Xrm.SourceControl.nuspec">
       <SubType>Designer</SubType>
     </None>
     <None Include="content\CrmConfiguration.props" />
@@ -82,10 +82,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>REM Create a NuGet package for this project and place the .nupkg file in the project's output directory.
-REM If you see this in Visual Studio's Error List window, check the Output window's Build tab for the actual error.
-ECHO Creating NuGet package in Post-Build event...
-PowerShell -NoProfile -ExecutionPolicy Bypass -Command "&amp; '$(ProjectDir)_CreateNewNuGetPackage\DoNotModify\CreateNuGetPackage.ps1' -ProjectFilePath '$(ProjectPath)' -OutputDirectory '$(TargetDir)' -BuildConfiguration '$(ConfigurationName)' -BuildPlatform '$(PlatformName)'"</PostBuildEvent>
+    <!-- <PostBuildEvent>
+      REM Create a NuGet package for this project and place the .nupkg file in the project's output directory.
+      REM If you see this in Visual Studio's Error List window, check the Output window's Build tab for the actual error.
+      ECHO Creating NuGet package in Post-Build event...
+      PowerShell -NoProfile -ExecutionPolicy Bypass -Command "&amp; '$(ProjectDir)_CreateNewNuGetPackage\DoNotModify\CreateNuGetPackage.ps1' -ProjectFilePath '$(ProjectPath)' -OutputDirectory '$(TargetDir)' -BuildConfiguration '$(ConfigurationName)' -BuildPlatform '$(PlatformName)'"
+    </PostBuildEvent>-->
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>Capgemini.VisualStudio.XrmSourceControl</id>
-    <version>1.0.1.1</version>
-    <title>Capgemini Visual Studio Extensions to provide easy source control for Dynamics CRM</title>
+    <id>MsBuild.Xrm.SourceControl</id>
+    <version>1.0.2</version>
+    <title>MsBuild Visual Studio Extensions to provide easy source control for Dynamics CRM</title>
     <authors>Kriss Sulikowski</authors>
-    <owners>Capgemini</owners>
+    <owners>MsBuild</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Capgemini Visual Studio Extensions to provide easy source control for Dynamics CRM - contains extract customisations and build scripts based on solutionpackager.exe SDK tool</description>
-    <copyright>Capgemini Copyright ©  2018</copyright>
+    <description>MsBuild Visual Studio Extensions to provide easy source control for Dynamics CRM - contains extract customisations and build scripts based on solutionpackager.exe SDK tool</description>
+    <copyright>MsBuild Copyright ©  2018</copyright>
     <dependencies />
    <releaseNotes>Client SDK dlls version 9, added dependency to Microsoft official nuget with solutionpackager.exe, TLS 1.2 enforced</releaseNotes>
   </metadata>
