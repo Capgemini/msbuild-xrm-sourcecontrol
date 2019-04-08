@@ -11,7 +11,6 @@ It extends the msbuild process for Clean and Afterbuild targets:
 
 ## Table of Contents
 
-* [Description](#Description)  
 * [Installation](#Installation)
 * [Usage](#Usage)
 * [Contributing](#Contributing)
