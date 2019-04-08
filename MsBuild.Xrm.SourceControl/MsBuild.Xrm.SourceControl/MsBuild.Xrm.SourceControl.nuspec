@@ -2,15 +2,19 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>MsBuild.Xrm.SourceControl</id>
-    <version>1.0.2</version>
-    <title>MsBuild Visual Studio Extensions to provide easy source control for Dynamics CRM</title>
-    <authors>Kriss Sulikowski</authors>
-    <owners>MsBuild</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <version>1.0.3</version>
+    <title>MsBuild Visual Studio Extensions to provide easy source control for Dynamics 365</title>
+    <authors>Capgemini</authors>
+    <owners>Capgemini</owners>
+    <licenseUrl>https://github.com/Capgemini/msbuild-xrm-sourcecontrol/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <projectUrl>https://github.com/Capgemini/msbuild-xrm-sourcecontrol</projectUrl>
+    <repository type="git" url="https://github.com/Capgemini/msbuild-xrm-sourcecontrol" />
     <description>MsBuild Visual Studio Extensions to provide easy source control for Dynamics CRM - contains extract customisations and build scripts based on solutionpackager.exe SDK tool</description>
-    <copyright>MsBuild Copyright ©  2018</copyright>
+    <copyright>Capgemini Copyright © 2019</copyright>
+    <tags>MsBuild.Xrm.SourceControl, Dynamics 365, Xrm, Source Control, Solution Packager, Dynamics, Power Platform, SDK, Solution Extraction, CI, Continuous Integration</tags>
     <dependencies />
-   <releaseNotes>Client SDK dlls version 9, added dependency to Microsoft official nuget with solutionpackager.exe, TLS 1.2 enforced</releaseNotes>
+    <releaseNotes>Client SDK dlls version 9, added dependency to Microsoft official nuget with solutionpackager.exe, TLS 1.2 enforced</releaseNotes>
   </metadata>
   <files>
     <file src="build\**" target="build" />
