@@ -1,26 +1,36 @@
 # MsBuild.Xrm.SourceControl
 
-## Introduction
-MsBuild Visual Studio Extensions to provide easy source control for Dynamics CRM customisations. The extensions use powershell scripts that can seamlessly extract customisations from a Dynamics CRM instance and rebuild into a Solution file.  
+## Description
+MSBuild.Xrm.SourceControl provides a simple but powerful method for extracting Dynamics 365 customisations. The extension uses powershell scripts that can seamlessly extract customisations from a Dynamics 365 instance and then subsequently rebuild them into a zipped Solution file ready for import when necessary.  
 
-The scripts use the *SolutionPackager.exe* tool provided by the Dynamics SDK. Supports file mappings, Managed and Unmanaged solutions, and the export of Autonumber and Calendar settings.
+The scripts use the *SolutionPackager.exe* tool provided by the Dynamics 365 SDK. It supports file mappings, managed and unmanaged solutions, and also the export of Autonumber and Calendar settings.
 
 It extends the msbuild process for Clean and Afterbuild targets:
 1. **Clean** - Executes a custom powershell script to export Managed and Unmanaged solution file from Dynamics and unpack them with *SolutionPackager.exe* to the "Src" folder.
 2. **AfterBuild** - Executes a custom powershell script to pack the "Src" folder into Managed (for Release configuration) and Unmanaged (for Release and Debug configuration) Dynamics solution files using *SolutionPackager.exe*.
 
-## Dependencies
-- **Microsoft.Xrm.Data.PowerShell** - [Microsoft.Xrm.Data.PowerShell GitHub project](https://github.com/seanmcne/Microsoft.Xrm.Data.PowerShell) - PowerShell wrapper for CRM SDK  [CrmServiceClient](https://msdn.microsoft.com/en-us/library/microsoft.xrm.tooling.connector.crmserviceclient_methods(v=crm.6).aspx) class.
-- **Microsoft.CrmSdk.CoreTools** - [Microsoft.CrmSdk.CoreTools Nuget package](https://www.nuget.org/packages/Microsoft.CrmSdk.CoreTools/) - Offical Microsoft CRM SDK core tools
-- **CreateNewNuGetPackageFromProjectAfterEachBuild** - [CreateNewNuGetPackageFromProjectAfterEachBuild Nuget package](https://www.nuget.org/packages/CreateNewNuGetPackageFromProjectAfterEachBuild/) - helper package to build nuget packages
+## Table of Contents
 
-## Example Usage
+* [Description](#Description)  
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Contributing](#Contributing)
+* [Credits](#Credits)
+* [License](#License)
+
+## Installation
+
+Create a blank class project in Visual Studio and install this extension by either searching for 'MSBuild.Xrm.SourceControl' from Manage Nuget Packages or run the command line `Install-Package MsBuild.Xrm.SourceControl`.
+
+More detailed installation instructions can be found on the [wiki](https://github.com/Capgemini/msbuild-xrm-sourcecontrol/wiki).
+
+## Usage
 
 Below shows the basic configurations to extract the customisations into source control
 
 ### Configuration
 
-When the Nuget package is first installed, two configuration files will be added into the project.
+When the [Nuget package](https://www.nuget.org/packages/MsBuild.Xrm.SourceControl/) is first installed, two configuration files will be added into the project.
 
 #### CrmConfiguration.props
 
@@ -34,20 +44,16 @@ When the Nuget package is first installed, two configuration files will be added
     <CrmConnectionString>Url=url; Username=user; Password=password; AuthType=Office365;</CrmConnectionString>
     <ExportAutoNumberSettings>0</ExportAutoNumberSettings>
     <ExportCallendarSettings>0</ExportCallendarSettings>
-</PropertyGroup> 
+  </PropertyGroup> 
 </Project>
 ```
 
 The first step is to populate the values for each of the elements:
 
-**CrmSolutionName**: The Name of the Dynamics Solution
-**CrmConnectionString**: The connection string that will be used to connect to the Dynamics instance, for more information, see [here](https://msdn.microsoft.com/en-gb/library/mt608573.aspx?f=255&MSPPError=-2147217396)
-**ExportAutoNumberSettings**: Option for whether to Export the AutoNumber Settings for the Solution, 0 for No, 1 for Yes
-**ExportCallendarSettings**: Option for whether to Export the Callendar Settings for the Solution, 0 for No, 1 for Yes
-
-The last two option are the equivalent of ticking the first two options on this page of the Dynamics Solution Export dialog:
-
-![SolutionExport.png](./attachments/solutionExport.png)
+- **CrmSolutionName**: The Name of the Dynamics Solution
+- **CrmConnectionString**: The connection string that will be used to connect to the Dynamics instance, for more information, see [here](https://msdn.microsoft.com/en-gb/library/mt608573.aspx?f=255&MSPPError=-2147217396)
+- **ExportAutoNumberSettings**: Option for whether to Export the AutoNumber Settings for the Solution, 0 for No, 1 for Yes
+- **ExportCallendarSettings**: Option for whether to Export the Callendar Settings for the Solution, 0 for No, 1 for Yes
 
 #### MappingFile.xml
 
@@ -60,7 +66,7 @@ The last two option are the equivalent of ticking the first two options on this 
 </Mapping>
 ```
 
-The Mapping configuration is used when the Solution file is being rebuilt from the extracted files. The mapping file can define mappings between a file that is contained in the solution, to a file that is in Source Control, the primary use for this is Web Resources, but it can also be used for compiled solution components such as Plugin dll files. When the solution is being built, the mapped files will be used instead of the ones already in the solution. This is to try to make sure that the latest version of the files are used.
+The Mapping configuration is used when the Solution is being rebuilt from the extracted files. The mapping file can define mappings between a file that is contained in the extracted solution files, to a file that is in another location on the file system. An example usage of this is for Web Resources, but it can also be used for compiled solution components such as Plugin .dll files. When the solution is being built, the mapped files will be used instead of the ones already in the solution. This is to try to make sure that the latest version of the files are used.
 
 ##### Example
 
@@ -69,17 +75,51 @@ The Mapping configuration is used when the Solution file is being rebuilt from t
 <Mapping>
   <FileToPath map="WebResources\*.*" to="..\..\XXX.Base.CrmPackage\WebResources\**" />
   <FileToPath map="WebResources\**\*.*" to="..\..\XXX.Base.CrmPackage\WebResources\**" />
-  <FileToFile map="CapgeminiBaseWorkflows.dll" to="..\..\XXX.Base.Workflows\bin\**\Capgemini.Base.Workflows.dll" />
-  <FileToFile map="CapgeminiBasePlugins.dll" to="..\..\XXX.Base.Plugins\bin\**\Capgemini.Base.Plugins.dll" />
+  <FileToFile map="Capgemini.Base.Workflows.dll" to="..\..\XXX.Base.Workflows\bin\**\Capgemini.Base.Workflows.dll" />
+  <FileToFile map="Capgemini.Base.Plugins.dll" to="..\..\XXX.Base.Plugins\bin\**\Capgemini.Base.Plugins.dll" />
 </Mapping>
 ```
 
-You can either use the FileToPath or FileToFile to map a collection of files or just a single file.
+You can either use the FileToPath or FileToFile elements to map a collection of files or just a single file.
 
 ### Solution Extraction
 
-The installation of the Nuget package will modify the .csproj file to add tasks into the project build process. When the "Clean" command is run on the project, the `ExtractCrmCustomizations.ps1` powershell script will be executed using the configuration files that we've previously mentioned to connect to Dynamics and extract the solution into the "Src" folder of the project. The "Src" folder and it's contents should be included in the Source Control if it isn't automatically. Every time the "Clean" is run and the changes are synced, a history will be built in Source Control giving the team more visibility of changes.
+The installation of the Nuget package will modify the .csproj file to add tasks into the project build process. When the "Clean" command is run on the project, the `ExtractCrmCustomizations.ps1` powershell script will be executed using the configuration files that are mentioned on the [Setup page](https://github.com/Capgemini/msbuild-xrm-sourcecontrol/wiki/Setup) to connect to Dynamics and extract the solution files into the "Src" folder of the project.  
 
-### Solution Rebuild
+![srcfolder.png](https://github.com/Capgemini/msbuild-xrm-sourcecontrol/wiki/.attachments/srcfolder.png)
 
-When the "Build" command is run on the project, the `BuildCrmCustomizations.ps1` powershell script will be executed using the configuration files that we've previously mentioned and build the solution files in the "Src" folder into a Dynamics Solution file. As you are probably aware, there are two different types of Dynamics solution, Managed or Unmanaged. If you're in the Debug build configuration, only the Unmanaged version of the Dynamics Solution will be built, if you're in Release, both a Managed and Unmanaged version will be built. The built solution files will be outputted to the "Bin" folder. Ready to be manually taken or used in an Automated build process.
+**NOTE**: It is not recommended to select the 'Include in Project' option for the Src folder or any of it's contents, as this will lead to unnecessary modifications to the project file every time a "Clean" is performed. Instead it is recommened to simply use the "Show All Files" button, to show the files. ![showallfiles.png](https://github.com/Capgemini/msbuild-xrm-sourcecontrol/wiki/.attachments/showallfiles.png)
+
+The "Src" folder and it's contents should be included in Source Control. Every time the "Clean" command is executed and the changes are synced, a history will be built in Source Control giving more visibility of changes.
+
+### Solution Build
+
+When the "Build" command is run on the project, the `BuildCrmCustomizations.ps1` powershell script will be executed using the configuration files that are previously mentioned and pack the solution files in the "Src" folder into a Dynamics Solution file. There are two different types of Dynamics solution, Managed or Unmanaged. If the Build Configuration in Visual Studio is set to Debug, only the Unmanaged version of the Dynamics solution will be built, if the Build Configuration is set to Release, both a Managed and Unmanaged version will be built.  
+
+The built solution files will be output to the project's "bin" folder. Ready to be manually deployed to another environment or used in an automated CI process:
+
+![solutionfiles.png](https://github.com/Capgemini/msbuild-xrm-sourcecontrol/wiki/.attachments/solutionfiles.png)
+
+#### Use in CI Pipeline
+
+As the extensions are for MSBuild, they can be used not only through Visual Studio, but anywhere that MSBuild can be executed, this means that the rebuilding of the solution files can be done, and is recommended to be done through a CI pipeline, such as those available in Azure DevOps:
+
+![adobuild.png](https://github.com/Capgemini/msbuild-xrm-sourcecontrol/wiki/.attachments/adobuild.png)
+
+**NOTE**: You may need to include the */bin/coretools/* folder and it's contents into Source Control for this to work. For git repositories, this would involve editing your git.ignore file.
+
+![coretools.png](https://github.com/Capgemini/msbuild-xrm-sourcecontrol/wiki/.attachments/coretools.png)
+
+## Contributing
+
+The source code for the extension will be made available soon. All contributions will be appreciated. 
+
+To contact us, please email [nuget.uk@capgemini.com](mailto:nuget.uk@capgemini.com).
+
+## Credits
+
+Capgemini UK Microsoft Team
+
+## License
+
+MIT
