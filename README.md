@@ -19,6 +19,10 @@ MSBuild.Xrm.SourceControl extends the MSBuild process for the Clean and AfterBui
 
 ## Installation
 
+### Prerequisites
+
+* Minimum .NET Framework: 4.5.1
+
 Create a new class project in Visual Studio and install this extension by either searching for "MSBuild.Xrm.SourceControl" from 'Manage Nuget Packages' or run the command line `Install-Package MSBuild.Xrm.SourceControl` in the 'Package Manager Console'.
 
 More detailed installation instructions can be found on the [wiki](https://github.com/Capgemini/msbuild-xrm-sourcecontrol/wiki).
