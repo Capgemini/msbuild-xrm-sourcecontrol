@@ -1,5 +1,7 @@
 # MSBuild.Xrm.SourceControl
 
+**Build and Release Status**: ![Build Status](https://capgeminiuk.visualstudio.com/Capgemini%20Reusable%20IP/_apis/build/status/GitHub%20CI%20Builds/Capgemini%20MsBuild%20Xrm%20SourceControl%20NUGET%20Build?branchName=master)
+
 ## Description
 MSBuild.Xrm.SourceControl provides a simple but powerful method for extracting Dynamics 365 customisations. The extension uses PowerShell scripts that can seamlessly extract customisations from a Dynamics 365 instance and then subsequently rebuild them into a zipped Solution file ready for import when necessary.  
 
@@ -128,4 +130,4 @@ This extension uses the excellent [Microsoft.Xrm.Data.Powershell](https://github
 
 ## License
 
-MIT
+[MIT](https://github.com/Capgemini/msbuild-xrm-sourcecontrol/blob/master/LICENSE)
