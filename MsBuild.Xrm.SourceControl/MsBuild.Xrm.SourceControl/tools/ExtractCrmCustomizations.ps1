@@ -11,7 +11,7 @@ param(
 [parameter(Mandatory=$true)]
 [string]$solutionName, #The unique CRM solution name
 [parameter(Mandatory=$true)]
-[string]$environmentVariable, #The connection string as per CRM Sdk,
+[string]$environmentVariable, #Environment variable to the ConnectionString for Extract,
 [parameter(Mandatory=$false)]
 [Bool]$exportAutoNumberingSettings = $false,
 [parameter(Mandatory=$false)]
@@ -21,8 +21,7 @@ param(
 $ErrorActionPreference = "Stop"
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; 
 
-$connectionString = $Env:$environmentVariable
-$connectionString = $environmentVariable+ " ;Timeout=00:10:00;"
+$connectionString = [System.Environment]::GetEnvironmentVariable($environmentVariable) + ";Timeout=00:10:00;"
 
 Write-Output "Solution Packager: $solutionPackager"
 Write-Output "Solution Files Folder: $solutionFilesFolder"
@@ -37,7 +36,6 @@ $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
 $moduleName = $scriptPath + "\Microsoft.Xrm.Data.PowerShell.psm1"           
 Write-Output "Importing: $moduleName" 
 Import-Module -Name $moduleName              #-Verbose
-
 
 $moduleName = $scriptPath + "\Microsoft.Xrm.Tooling.Connector.dll"        
 Write-Output "Importing: $moduleName" 
