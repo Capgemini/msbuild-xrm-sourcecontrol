@@ -11,7 +11,7 @@ param(
 [parameter(Mandatory=$true)]
 [string]$solutionName, #The unique CRM solution name
 [parameter(Mandatory=$true)]
-[string]$connectionString, #The connection string as per CRM Sdk,
+[string]$environmentVariable, #The connection string as per CRM Sdk,
 [parameter(Mandatory=$false)]
 [Bool]$exportAutoNumberingSettings = $false,
 [parameter(Mandatory=$false)]
@@ -21,14 +21,15 @@ param(
 $ErrorActionPreference = "Stop"
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; 
 
-$connectionString = $connectionString + " ;Timeout=00:10:00;"
+$connectionString = $Env:$environmentVariable
+$connectionString = $environmentVariable+ " ;Timeout=00:10:00;"
 
 Write-Output "Solution Packager: $solutionPackager"
 Write-Output "Solution Files Folder: $solutionFilesFolder"
 Write-Output "Solution Name: $solutionName"
 Write-Output "ConnectionString: $connectionString"
 
-Set-ExecutionPolicy –ExecutionPolicy RemoteSigned –Scope CurrentUser
+Set-ExecutionPolicy â€“ExecutionPolicy RemoteSigned â€“Scope CurrentUser
 
 
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
