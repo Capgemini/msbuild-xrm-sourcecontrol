@@ -3,13 +3,12 @@
 <PropertyGroup> 
     <CrmSolutionPackagerPath>$(ProjectDir)\bin\coretools\SolutionPackager</CrmSolutionPackagerPath>
     <CrmVersionControlScripts>$(MSBuildThisFileDirectory)..\tools</CrmVersionControlScripts>
-    <Enviro>$(EnvironmentVariableName)</Enviro>
 </PropertyGroup> 
 
 <Import Project="$(ProjectDir)\CrmConfiguration.props" />
 
   <Target Name="Clean">
-    <Exec Command="powershell -command &quot;&amp;'$(CrmVersionControlScripts)\ExtractCrmCustomizations.ps1' '$(CrmSolutionPackagerPath)' '$(ProjectDir)Src' '$(CrmSolutionName)' '$(Enviro)' $(ExportAutoNumberSettings) $(ExportCallendarSettings)&quot;" Condition="'$(Configuration)'=='Debug'"/>
+    <Exec Command="powershell -command &quot;&amp;'$(CrmVersionControlScripts)\ExtractCrmCustomizations.ps1' '$(CrmSolutionPackagerPath)' '$(ProjectDir)Src' '$(CrmSolutionName)' '$(EnvironmentVariableName)' $(ExportAutoNumberSettings) $(ExportCallendarSettings)&quot;" Condition="'$(Configuration)'=='Debug'"/>
   </Target>
 
   <Target Name="AfterBuild">
