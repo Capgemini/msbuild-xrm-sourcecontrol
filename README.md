@@ -5,6 +5,9 @@
 ## 2.0.0
 Added Environment variable to support multiple extracts for people who work across multiple projects environments
 
+## 1.0.4
+Initial release supporting Extract of Customisations.
+
 **Build and Release Status**: ![Build Status](https://capgeminiuk.visualstudio.com/Capgemini%20Reusable%20IP/_apis/build/status/GitHub%20CI%20Builds/Capgemini%20MsBuild%20Xrm%20SourceControl%20NUGET%20Build?branchName=master)
 
 ## Description
