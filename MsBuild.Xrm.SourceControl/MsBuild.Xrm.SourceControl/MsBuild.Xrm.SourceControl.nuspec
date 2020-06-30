@@ -14,7 +14,7 @@
     <copyright>Capgemini Copyright © 2019</copyright>
     <tags>MsBuild.Xrm.SourceControl, Dynamics 365, Xrm, Source Control, Solution Packager, Dynamics, Power Platform, SDK, Solution Extraction, CI, Continuous Integration</tags>
     <dependencies />
-    <releaseNotes>Added documentation.</releaseNotes>
+    <releaseNotes>Added environment variables.</releaseNotes>
   </metadata>
   <files>
     <file src="build\**" target="build" />
