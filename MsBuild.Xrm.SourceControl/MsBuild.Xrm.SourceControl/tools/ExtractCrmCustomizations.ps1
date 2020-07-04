@@ -28,7 +28,7 @@ Write-Output "Solution Files Folder: $solutionFilesFolder"
 Write-Output "Solution Name: $solutionName"
 Write-Output "ConnectionString: $connectionString"
 
-Set-ExecutionPolicy –ExecutionPolicy RemoteSigned –Scope CurrentUser
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
