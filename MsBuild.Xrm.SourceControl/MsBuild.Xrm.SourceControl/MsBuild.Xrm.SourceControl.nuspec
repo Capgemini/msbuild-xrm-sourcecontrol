@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>MsBuild.Xrm.SourceControl</id>
-    <version>2.0.2</version>
+    <version>3.0.0</version>
     <title>MsBuild Visual Studio Extensions to provide easy source control for Dynamics 365</title>
     <authors>Capgemini</authors>
     <owners>Capgemini</owners>
@@ -14,11 +14,11 @@
     <copyright>Capgemini Copyright © 2019</copyright>
     <tags>MsBuild.Xrm.SourceControl, Dynamics 365, Xrm, Source Control, Solution Packager, Dynamics, Power Platform, SDK, Solution Extraction, CI, Continuous Integration</tags>
     <dependencies />
-    <releaseNotes>Fixed Encoding issue when moved to github</releaseNotes>
+    <releaseNotes>support for Oauth</releaseNotes>
   </metadata>
   <files>
     <file src="build\**" target="build" />
     <file src="content\**" target="content" />
     <file src="tools\**" target="tools" />
   </files>
- </package>
+</package>
