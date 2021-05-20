@@ -55,7 +55,7 @@ When the [Nuget package](https://www.nuget.org/packages/MsBuild.Xrm.SourceContro
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup> 
     <CrmSolutionName>NOT_DEFINED</CrmSolutionName> 
-    <CrmConnectionString>Url=url; Username=user; Password=password; AuthType=Office365;</CrmConnectionString>
+    <CrmConnectionString>AuthType=OAuth;Url=url; Username=user; Password=password;ClientId=clientid;RedirectUri=redirectUri;</CrmConnectionString>
     <ExportAutoNumberSettings>0</ExportAutoNumberSettings>
     <ExportCallendarSettings>0</ExportCallendarSettings>
   </PropertyGroup> 
